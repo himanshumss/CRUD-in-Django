@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex justify-center items-center">
+
+<div class="bg-white p-8 rounded shadow w-[420px]">
+
+    <h2 class="text-2xl font-bold mb-4 text-center">Update Student</h2>
+
+    <!-- STEP 1: SELECT STUDENT -->
+    <form method="post" class="mb-6">
+        {% csrf_token %}
+        <input type="hidden" name="select_student">
+
+        <select name="roll" required class="w-full p-2 border rounded mb-3">
+            <option value="">-- Select Student --</option>
+            {% for s in students %}
+                <option value="{{ s.roll }}"
+                    {% if stu and stu.roll == s.roll %}selected{% endif %}>
+                    {{ s.name }} (Roll: {{ s.roll }})
+                </option>
+            {% endfor %}
+        </select>
+
+        <button class="w-full bg-blue-600 text-white p-2 rounded">
+            Load Student
+        </button>
+    </form>
+
+    <!-- STEP 2: UPDATE FORM -->
+    {% if stu %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="update_student">
+        <input type="hidden" name="roll" value="{{ stu.roll }}">
+
+        <input type="text" value="Roll: {{ stu.roll }}" readonly
+               class="w-full p-2 mb-3 border rounded bg-gray-100">
+
+        <input type="text" name="name" value="{{ stu.name }}" required
+               class="w-full p-2 mb-3 border rounded">
+
+        <input type="text" name="course" value="{{ stu.course }}" required
+               class="w-full p-2 mb-3 border rounded">
+
+        <input type="text" name="mobile" value="{{ stu.mobile }}" required
+               class="w-full p-2 mb-4 border rounded">
+
+        <button class="w-full bg-green-600 text-white p-2 rounded">
+            Update Student
+        </button>
+    </form>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

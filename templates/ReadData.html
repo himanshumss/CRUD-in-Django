@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Read Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10">
+
+<div class="bg-white p-6 rounded shadow">
+    <h2 class="text-2xl font-bold mb-4 text-center">Student Records</h2>
+
+    <table class="w-full border">
+        <tr class="bg-gray-200">
+            <th class="border p-2">ID</th>
+            <th class="border p-2">Roll No</th>
+            <th class="border p-2">Name</th>
+            <th class="border p-2">Course</th>
+            <th class="border p-2">Mobile</th>
+        </tr>
+
+        {% for s in stud %}
+        <tr>
+            <td class="border p-2">{{ stid }}</td>
+            <td class="border p-2">{{ s.roll }}</td>
+            <td class="border p-2">{{ s.name }}</td>
+            <td class="border p-2">{{ s.course }}</td>
+            <td class="border p-2">{{ s.mobile }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4" class="text-center p-4">No records found</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
