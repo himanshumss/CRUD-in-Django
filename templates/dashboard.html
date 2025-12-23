@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Operations</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Card hover animation */
+        .card {
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="max-w-5xl w-full px-6">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-10">
+            CRUD Operations Dashboard
+        </h1>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- Create -->
+            <div class="card bg-white rounded-xl shadow-md p-6 text-center">
+                <h2 class="text-xl font-semibold text-green-600 mb-3">Create</h2>
+                <p class="text-gray-600 mb-5">
+                    Add new records into the system.
+                </p>
+                <a href="{% url 'create_data' %}"
+                   class="inline-block bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700">
+                    Go to Create
+                </a>
+            </div>
+
+            <!-- Read -->
+            <div class="card bg-white rounded-xl shadow-md p-6 text-center">
+                <h2 class="text-xl font-semibold text-blue-600 mb-3">Read</h2>
+                <p class="text-gray-600 mb-5">
+                    View and browse stored records.
+                </p>
+                <a href="{% url 'read_data' %}"
+                   class="inline-block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">
+                    Go to Read
+                </a>
+            </div>
+
+            <!-- Update -->
+            <div class="card bg-white rounded-xl shadow-md p-6 text-center">
+                <h2 class="text-xl font-semibold text-yellow-600 mb-3">Update</h2>
+                <p class="text-gray-600 mb-5">
+                    Modify existing data securely.
+                </p>
+                <a href="{% url 'update_student' %}"
+                   class="inline-block bg-yellow-500 text-white px-5 py-2 rounded-lg hover:bg-yellow-600">
+                    Go to Update
+                </a>
+            </div>
+
+            <!-- Delete -->
+            <div class="card bg-white rounded-xl shadow-md p-6 text-center">
+                <h2 class="text-xl font-semibold text-red-600 mb-3">Delete</h2>
+                <p class="text-gray-600 mb-5">
+                    Remove records permanently.
+                </p>
+                <a href="{% url 'delete_data' %}"
+                   class="inline-block bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700">
+                    Go to Delete
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
