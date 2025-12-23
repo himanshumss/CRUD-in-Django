@@ -11,3 +11,6 @@ def createdata(request):
         stu.save()
         return render(request, 'createData.html', {'msg': 'Data Created Successfully'})
     return render(request, 'createData.html')
+
+def home(request):
+    return render(request, 'dashboard.html')
